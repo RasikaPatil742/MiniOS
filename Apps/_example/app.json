@@ -1,0 +1,8 @@
+{
+  "name": "My App",
+  "command": "myapp",
+  "description": "Short description of what your app does",
+  "author": "Your Name",
+  "version": "1.0.0",
+  "website": "https://github.com/yourname/your-app"
+}

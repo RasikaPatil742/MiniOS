@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 import tkinter as tk
 
 from desktop.gui import theme as T
-from desktop.menus import MENU_LABELS, MENUS, MenuItem
+from desktop.menus import MENU_LABELS, MENUS, MenuItem, menu_items
 
 if TYPE_CHECKING:
     from desktop.gui.app import ForgeDesktop
@@ -41,7 +41,7 @@ class StartMenu(tk.Toplevel):
         body.pack(fill="both", expand=True)
 
         for key in ("start", "file", "view", "terminal", "help", "settings"):
-            self._section(body, MENU_LABELS[key], MENUS[key], key)
+            self._section(body, MENU_LABELS[key], menu_items(key), key)
 
         sep = tk.Frame(outer, bg=T.BORDER, height=1)
         sep.pack(fill="x", padx=8)

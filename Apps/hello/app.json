@@ -1,0 +1,8 @@
+{
+  "name": "Hello",
+  "command": "hello",
+  "description": "Greet the Forge OS community",
+  "author": "Forge OS",
+  "version": "1.0.0",
+  "website": "https://github.com/axk42-op/ForgeOS"
+}

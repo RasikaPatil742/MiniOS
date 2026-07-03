@@ -39,9 +39,9 @@ class DesktopChrome:
         self._console.print(self._taskbar())
 
     def show_menu_panel(self, menu_key: str) -> None:
-        from desktop.menus import MENU_LABELS, MENUS
+        from desktop.menus import MENU_LABELS, menu_items
 
-        items = MENUS.get(menu_key, ())
+        items = menu_items(menu_key)
         title = MENU_LABELS.get(menu_key, menu_key.title())
         lines = [Text(f"{title} menu", style="bold cyan"), Text("")]
         for item in items:

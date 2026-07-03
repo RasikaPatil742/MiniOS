@@ -13,7 +13,7 @@ class MenuCommand(BaseCommand):
     examples = ("menu", "menu file", "menu view", "menu help")
 
     def execute(self, args: list[str], context: dict[str, Any]) -> CommandResult:
-        from desktop.menus import MENU_LABELS, MENUS
+        from desktop.menus import MENU_LABELS, MENUS, menu_items
         from desktop.picker import pick_item
         from desktop.runner import run_shell_line
 
@@ -29,7 +29,7 @@ class MenuCommand(BaseCommand):
             )
 
         title = MENU_LABELS.get(category, category.title())
-        command_line = pick_item(title, MENUS[category], console, context)
+        command_line = pick_item(title, menu_items(category), console, context)
         if command_line is None:
             return CommandResult(output="Menu closed.")
 

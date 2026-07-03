@@ -11,12 +11,22 @@ class MenuItem:
     label: str
 
 
+def _community_menu_items() -> tuple[MenuItem, ...]:
+    from shell.community_apps import installed_apps
+
+    return tuple(
+        MenuItem(app.command, app.name) for app in installed_apps()
+    )
+
+
 START_MENU: tuple[MenuItem, ...] = (
+    MenuItem("apps", "Applications"),
     MenuItem("help", "Help — all commands"),
     MenuItem("search", "Search commands"),
     MenuItem("forgefetch", "System information"),
     MenuItem("logo", "Forge logo"),
     MenuItem("calc", "Calculator"),
+    MenuItem("fortune", "Random fortune"),
     MenuItem("docs", "Documentation (browser)"),
     MenuItem("source", "Source code (GitHub)"),
     MenuItem("clear", "Clear screen"),
@@ -73,6 +83,22 @@ SETTINGS_MENU: tuple[MenuItem, ...] = (
     MenuItem("logout", "Sign out"),
     MenuItem("disclaimer", "Local storage info"),
 )
+
+def start_menu_items() -> tuple[MenuItem, ...]:
+    """Start menu including auto-discovered community apps."""
+    community = _community_menu_items()
+    if not community:
+        return START_MENU
+    insert_at = 1
+    return START_MENU[:insert_at] + community + START_MENU[insert_at:]
+
+
+def menu_items(category: str) -> tuple[MenuItem, ...]:
+    """Return menu items for a category (Start menu includes community apps)."""
+    if category == "start":
+        return start_menu_items()
+    return MENUS.get(category, ())
+
 
 MENUS: dict[str, tuple[MenuItem, ...]] = {
     "start": START_MENU,

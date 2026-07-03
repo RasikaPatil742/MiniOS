@@ -58,6 +58,9 @@ class ForgeShell:
 
         self._registry = CommandRegistry()
         self._registry.discover()
+        from shell.community_apps import load_community_apps
+
+        load_community_apps(self._registry)
 
         self._context = {
             "kernel": kernel,

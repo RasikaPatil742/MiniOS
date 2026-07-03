@@ -42,6 +42,7 @@ Forge OS aims to become a complete virtual development platform where users can:
 * **GUI login** — sign-in window before the desktop loads
 * **Forge branding** — SVG/ICO logo, window icon, neofetch-style boot banner
 * **Taskbar menus** — `start`, `menu`, `settings`, `search` commands
+* **Community Apps folder** — drop apps in `Apps/`; list with `apps` command
 * **Easy launch** — `boot.bat` / `forge.bat` for Windows
 
 ### v1.0
@@ -129,6 +130,8 @@ Forge/
 ├── boot.py              # Boot entry point
 ├── cli.py               # forgeos CLI (login, version)
 ├── launcher.py          # ForgeOS window launcher
+├── Apps/                # Community apps (app.json + command.py per folder)
+├── CONTRIBUTIONS.md     # How to contribute an app
 ├── auth/                # Login, crypto, local credential storage
 ├── docs/
 │   ├── HOME.md          # GitHub Wiki home (copy to wiki)
@@ -207,3 +210,18 @@ python boot.py
 * **Documentation:** https://github.com/axk42-op/ForgeOS/wiki/Docs
 * **Repository:** https://github.com/axk42-op/ForgeOS
 * In the shell: `docs` · `source` · `disclaimer`
+
+---
+
+## Contributing an app
+
+Forge OS accepts **community applications** in the [`Apps/`](Apps/) folder. Each app is a directory with `app.json` (metadata) and `command.py` (a shell command).
+
+1. Copy [`Apps/_example/`](Apps/_example/) to `Apps/your-app-name/`
+2. Edit `app.json` and implement your command in `command.py`
+3. Restart Forge OS and run `apps` to verify it appears
+4. Open a Pull Request on [GitHub](https://github.com/axk42-op/ForgeOS)
+
+**Full step-by-step guide:** [CONTRIBUTIONS.md](CONTRIBUTIONS.md)
+
+Built-in apps (`calc`, `fortune`, etc.) live in `shell/commands/apps/`. New submissions should use **`Apps/`** so they are easy to review and install.
