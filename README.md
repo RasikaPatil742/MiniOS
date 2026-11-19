@@ -52,7 +52,7 @@ MiniOS is a Python-based Operating System Simulator developed to demonstrate fun
 4. Start MiniOS:
 
    ```bash
-   python boot.py
+   .\boot.bat
    ```
 
 ## Project Scope
