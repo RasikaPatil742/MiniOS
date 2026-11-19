@@ -1,227 +1,72 @@
-# Forge OS
+# MiniOS – Python-Based Operating System Simulator
 
-> A Python-powered virtual operating system for developers.
-
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)
-![Status](https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-00C853?style=for-the-badge)
-
----
-
-## What is Forge OS?
-
-Forge OS is an open-source virtual operating system built entirely in Python.
-
-Unlike a traditional operating system, Forge OS runs as a Python application while providing its own operating system environment. It is designed for learning, experimentation, software development, and testing operating system concepts without interacting directly with computer hardware.
-
-The project focuses on creating a developer-first environment featuring its own shell, virtual filesystem, package manager, user management, applications, and a desktop environment with windowed apps.
-
----
-
-## Vision
-
-Forge OS aims to become a complete virtual development platform where users can:
-
-* Write code
-* Build applications
-* Test software
-* Manage projects
-* Install packages
-* Explore operating system concepts
-* Learn software architecture
-
----
+MiniOS is a Python-based Operating System Simulator developed to demonstrate fundamental operating system concepts through a command-line shell and graphical interface.
 
 ## Features
 
-### v2.0
+- Boot Sequence Simulation
+- User Login and Authentication
+- User Registration
+- Command-Line Shell
+- Virtual File System
+- File and Directory Management
+- User Management
+- Password Management
+- System Information
+- Memory Information
+- Simulated Process Management
+- Command Help and History
+- Reboot and Shutdown Simulation
+- Desktop GUI
+- Virtual Kernel
+- Package Management
 
-* **Desktop environment** — tkinter GUI with taskbar, Start menu, clock, and window manager
-* **Terminal as an app** — Forge Shell runs inside a draggable desktop window
-* **GUI login** — sign-in window before the desktop loads
-* **Forge branding** — SVG/ICO logo, window icon, neofetch-style boot banner
-* **Taskbar menus** — `start`, `menu`, `settings`, `search` commands
-* **Community Apps folder** — drop apps in `Apps/`; list with `apps` command
-* **Easy launch** — `boot.bat` / `forge.bat` for Windows
+## Technologies Used
 
-### v1.0
+- Python
+- Tkinter
+- Rich
+- psutil
+- platformdirs
 
-* **Forge Shell** — 65+ auto-discovered commands (`help`, `docs`, `source`, `disclaimer`, and more)
-* **Login system** — first-run registration, returning-user login, `passwd`, `logout` (local storage)
-* **ForgeOS terminal window** — dedicated boot window on Windows
-* **Virtual filesystem** — in-memory VFS with user home directories
-* **Package manager** — `forgepkg list`, `info`, `install`
-* **Rich UI** — boot banner, animated startup, colored shell output
-* **CLI** — `forgeos login`, `forgeos start`, `forgeos version`
-* **Wiki docs** — `docs` and `source` commands link to GitHub wiki and repo
+## How to Run
 
-### Current
+1. Clone the repository:
 
-* Custom boot sequence with ForgeOS terminal window
-* Local login / first-run account setup
-* Forge Shell (64+ commands)
-* Kernel manager
-* Virtual filesystem (in-memory VFS)
-* User management
-* Package manager (`forgepkg`)
-* Boot banner and Rich UI
-* Modular command architecture with auto-discovery
-* Command history, aliases, pipes (basic)
-* Auth stored locally via `platformdirs` (salted SHA-256 hashes — never plain text)
+   ```bash
+   git clone https://github.com/RasikaPatil742/MiniOS.git
+   ```
 
-### Planned
+2. Navigate to the project folder:
 
-#### Shell
+   ```bash
+   cd MiniOS
+   ```
 
-* Full pipe/redirection support
-* Syntax highlighting in the REPL
-* Rich prompt themes
+3. Install dependencies:
 
-#### Filesystem
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-* File permissions
-* Symbolic links
-* Mount points
-* Persistence across sessions
+4. Start MiniOS:
 
-#### Package Manager
+   ```bash
+   python boot.py
+   ```
 
-* `forgepkg remove` / `forgepkg update`
-* Package repositories
-* Dependency resolution
+## Project Scope
 
-#### Applications
+MiniOS is an educational operating system simulator. It demonstrates selected operating system concepts but is not a real bootable operating system and does not directly manage computer hardware.
 
-* Terminal (enhanced)
-* File Manager
-* Settings
-* Text Editor
+## Acknowledgement
 
-#### Developer Tools
+This project is adapted from the original ForgeOS project:
 
-* Git integration (real)
-* Python / Node.js / npm wrappers (real)
-* Package SDK
+https://github.com/axk42-op/ForgeOS
 
-#### Desktop
+The original project has been modified and rebranded as MiniOS for educational purposes.
 
-* Window manager
-* Taskbar
-* Notifications
-* Themes
-* Widgets
+## Author
 
----
-
-## Planned Applications
-
-* vi / Vim / Neovim
-* Vimge
-* Forge (editor)
-* Forgium (browser)
-
----
-
-## Project Structure
-
-```text
-Forge/
-├── boot.py              # Boot entry point
-├── cli.py               # forgeos CLI (login, version)
-├── launcher.py          # ForgeOS window launcher
-├── Apps/                # Community apps (app.json + command.py per folder)
-├── CONTRIBUTIONS.md     # How to contribute an app
-├── auth/                # Login, crypto, local credential storage
-├── docs/
-│   ├── HOME.md          # GitHub Wiki home (copy to wiki)
-│   └── WIKI.md          # GitHub Wiki docs (copy to wiki)
-├── kernel/
-├── shell/
-│   ├── commands/        # Auto-discovered shell commands
-│   └── ui/              # Rich UI components
-├── filesystem/
-├── users/
-├── packages/
-├── pyproject.toml       # PyPI packaging (planned)
-└── requirements.txt
-```
-
----
-
-## Quick start
-
-### Windows (recommended)
-
-Double-click `boot.bat` in the Forge folder, or:
-
-```cmd
-cd /d D:\ForgeOS\Forge
-.\.venv\Scripts\python.exe boot.py
-```
-
-Legacy full-screen terminal mode:
-
-```cmd
-cd /d D:\ForgeOS\Forge
-.\.venv\Scripts\python.exe boot.py --session
-```
-
-### Setup from scratch
-
-```cmd
-cd Forge
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m pip install -e .
-.\.venv\Scripts\python.exe boot.py
-```
-
----
-
-## Install from GitHub (other devices)
-
-Clone the repo and run Forge OS on any machine with **Python 3.10+** and [uv](https://github.com/astral-sh/uv) (recommended).
-
-### Windows
-
-```cmd
-git clone https://github.com/axk42-op/ForgeOS.git
-cd ForgeOS
-uv venv
-uv pip install -r requirements.txt
-uv pip install -e .
-python boot.py
-```
-
-### Linux / macOS
-
-```bash
-git clone https://github.com/axk42-op/ForgeOS.git
-cd ForgeOS
-uv venv
-uv pip install -r requirements.txt
-uv pip install -e .
-python boot.py
-```
-
-### Wiki & links
-
-* **Documentation:** https://github.com/axk42-op/ForgeOS/wiki/Docs
-* **Repository:** https://github.com/axk42-op/ForgeOS
-* In the shell: `docs` · `source` · `disclaimer`
-
----
-
-## Contributing an app
-
-Forge OS accepts **community applications** in the [`Apps/`](Apps/) folder. Each app is a directory with `app.json` (metadata) and `command.py` (a shell command).
-
-1. Copy [`Apps/_example/`](Apps/_example/) to `Apps/your-app-name/`
-2. Edit `app.json` and implement your command in `command.py`
-3. Restart Forge OS and run `apps` to verify it appears
-4. Open a Pull Request on [GitHub](https://github.com/axk42-op/ForgeOS)
-
-**Full step-by-step guide:** [CONTRIBUTIONS.md](CONTRIBUTIONS.md)
-
-Built-in apps (`calc`, `fortune`, etc.) live in `shell/commands/apps/`. New submissions should use **`Apps/`** so they are easy to review and install.
+Rasika Patil
