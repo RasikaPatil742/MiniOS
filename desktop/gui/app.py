@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 
 class ForgeDesktop:
-    """Full Forge OS desktop with taskbar and managed application windows."""
+    """Full MiniOS desktop with taskbar and managed application windows."""
 
     def __init__(self, forge_os: ForgeOS) -> None:
         self.forge_os = forge_os
@@ -29,7 +29,7 @@ class ForgeDesktop:
         self._window_offset = 0
 
         self.root = tk.Tk()
-        self.root.title("Forge OS")
+        self.root.title("MiniOS")
         self.root.configure(bg=T.BG_DESKTOP)
         self.root.geometry("1280x720")
         self.root.minsize(960, 540)
@@ -46,7 +46,7 @@ class ForgeDesktop:
 
         self._wallpaper = tk.Label(
             self.desktop_frame,
-            text="Forge OS",
+            text="MiniOS",
             font=("Segoe UI", 28, "bold"),
             fg="#21262d",
             bg=T.BG_DESKTOP,
@@ -138,7 +138,7 @@ class ForgeDesktop:
         self._start_menu.show_at(bx, by - 420)
 
     def shutdown(self) -> None:
-        if messagebox.askyesno("Forge OS", "Shut down Forge OS?"):
+        if messagebox.askyesno("MiniOS", "Shut down MiniOS?"):
             self.forge_os.shell.session.stop()
             self.root.destroy()
 

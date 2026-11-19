@@ -1,4 +1,4 @@
-"""Forge OS bottom taskbar — real menus, clock, and date."""
+"""MiniOS bottom taskbar — real menus, clock, and date."""
 
 from __future__ import annotations
 
@@ -93,6 +93,6 @@ class DesktopChrome:
             border_style="#478061",
             padding=(0, 0),
             expand=True,
-            title="[dim]Forge OS[/dim]",
+            title="[dim]MiniOS[/dim]",
             title_align="left",
         )

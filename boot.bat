@@ -1,7 +1,7 @@
 @echo off
 cd /d "%~dp0"
 echo.
-echo  Forge OS Launcher
+echo  MiniOS Launcher
 echo  =================
 echo.
 if not exist ".venv\Scripts\python.exe" (
@@ -18,7 +18,7 @@ if not exist ".venv\Scripts\python.exe" (
     echo Installing dependencies...
     .venv\Scripts\python.exe -m pip install -r requirements.txt
 )
-echo Starting Forge OS desktop...
+echo Starting MiniOS desktop...
 echo.
 .venv\Scripts\python.exe boot.py
 echo.

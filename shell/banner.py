@@ -11,7 +11,7 @@ from shell.ui.neofetch import build_neofetch
 
 
 class BootBanner:
-    """Displays the Forge OS boot screen."""
+    """Displays the MiniOS boot screen."""
 
     def __init__(self, console: Console | None = None, version: str = "1.0.0") -> None:
         self._console = console or Console(force_terminal=True, legacy_windows=False)
@@ -70,7 +70,7 @@ class BootSequence:
         ("Virtual Filesystem", "Mounting virtual filesystem"),
         ("User Manager", "Loading user accounts"),
         ("Package Manager", "Initializing package manager"),
-        ("Shell", "Starting Forge Shell"),
+        ("Shell", "Starting MiniOS Shell"),
     )
 
     def __init__(self, console: Console | None = None) -> None:

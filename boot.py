@@ -3,7 +3,19 @@
 import argparse
 import sys
 
-from rich.console import Console
+try:
+    from rich.console import Console
+except ImportError:
+    class Console:
+        """Minimal fallback when the optional Rich dependency is unavailable."""
+
+        def __init__(self, **_: object) -> None:
+            pass
+
+        def print(self, *objects: object, **kwargs: object) -> None:
+            for key in ("style", "markup", "highlight", "soft_wrap", "emoji"):
+                kwargs.pop(key, None)
+            print(*objects, **kwargs)
 
 from auth.login import AuthFlow
 from kernel.kernel import Kernel
@@ -111,7 +123,7 @@ def run_session() -> int:
 
 
 def run_gui_session() -> int:
-    print("Starting Forge OS desktop...", flush=True)
+    print("Starting MiniOS desktop...", flush=True)
     try:
         username = run_login()
 
@@ -121,17 +133,17 @@ def run_gui_session() -> int:
 
         print(f"Welcome, {username}. Loading desktop...", flush=True)
         ForgeOS(username=username, desktop=True).run()
-        print("Forge OS closed.", flush=True)
+        print("MiniOS closed.", flush=True)
         return 0
     except Exception as error:
         import traceback
 
-        print(f"Forge OS failed to start: {error}", flush=True)
+        print(f"MiniOS failed to start: {error}", flush=True)
         traceback.print_exc()
         try:
             from tkinter import messagebox
 
-            messagebox.showerror("Forge OS", f"Failed to start:\n{error}")
+            messagebox.showerror("MiniOS", f"Failed to start:\n{error}")
         except Exception:
             pass
         return 1
@@ -143,7 +155,7 @@ def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
 
-    parser = argparse.ArgumentParser(description="Forge OS boot entry point")
+    parser = argparse.ArgumentParser(description="MiniOS boot entry point")
     parser.add_argument(
         "--session",
         action="store_true",
@@ -152,7 +164,7 @@ def main() -> int:
     parser.add_argument(
         "--gui",
         action="store_true",
-        help="Run the Forge OS desktop window (default)",
+        help="Run the MiniOS desktop window (default)",
     )
     args = parser.parse_args()
 

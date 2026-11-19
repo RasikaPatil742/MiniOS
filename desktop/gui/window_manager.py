@@ -1,4 +1,4 @@
-"""Managed application windows on the Forge OS desktop."""
+"""Managed application windows on the MiniOS desktop."""
 
 from __future__ import annotations
 

@@ -8,9 +8,9 @@ from shell.commands.base import BaseCommand, CommandResult
 class ExitCommand(BaseCommand):
     name = "exit"
     category = "system"
-    description = "Exit Forge Shell"
+    description = "Exit MiniOS Shell"
     syntax = "exit"
     examples = ("exit",)
 
     def execute(self, args: list[str], context: dict[str, Any]) -> CommandResult:
-        return CommandResult(output="Goodbye from Forge OS.", should_exit=True)
+        return CommandResult(output="Goodbye from MiniOS.", should_exit=True)

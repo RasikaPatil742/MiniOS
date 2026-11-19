@@ -8,7 +8,7 @@ from shell.commands.base import BaseCommand, CommandResult
 class UsersCommand(BaseCommand):
     name = "users"
     category = "system"
-    description = "List active Forge OS users"
+    description = "List active MiniOS users"
     syntax = "users"
     examples = ("users",)
 

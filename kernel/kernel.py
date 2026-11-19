@@ -1,15 +1,15 @@
-"""Forge OS kernel."""
+"""MiniOS kernel."""
 
 from datetime import datetime, timezone
 
 
 class Kernel:
-    """Core kernel services for Forge OS."""
+    """Core kernel services for MiniOS."""
 
     def __init__(self) -> None:
         self._boot_time = datetime.now(timezone.utc)
         self._version = "2.0.0"
-        self._name = "Forge Kernel"
+        self._name = "MiniOS Kernel"
 
     @property
     def version(self) -> str:

@@ -20,12 +20,12 @@ class UnameCommand(BaseCommand):
         if "-a" in args or "--all" in args:
             return CommandResult(
                 output=(
-                    f"ForgeOS {kernel.version} "
+                    f"MiniOS {kernel.version} "
                     f"{users.hostname} "
                     f"{kernel.name} "
                     f"{session.environment.get('FORGE_VERSION', kernel.version)} "
-                    f"x86_64 Forge/Virtual"
+                    f"x86_64 MiniOS/Virtual"
                 )
             )
 
-        return CommandResult(output="ForgeOS")
+        return CommandResult(output="MiniOS")

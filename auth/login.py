@@ -24,7 +24,7 @@ class AuthFlow:
     def _register(self) -> str:
         self._console.print(
             Panel(
-                "Welcome to Forge OS.\nCreate your account (stored locally on this machine).\n"
+                "Welcome to MiniOS.\nCreate your account (stored locally on this machine).\n"
                 "Passwords are stored as salted hashes — never plain text.",
                 title="First Run Setup",
                 border_style="cyan",
@@ -62,7 +62,7 @@ class AuthFlow:
         self._console.print(
             Panel(
                 f"Sign in to continue.{hint_text}",
-                title="Forge OS Login",
+                title="MiniOS - Sign In",
                 border_style="cyan",
             )
         )
@@ -78,7 +78,7 @@ class AuthFlow:
             password = getpass("Password: ")
             if self._store.verify(username, password):
                 self._store.remember_username(username)
-                self._console.print(f"[green]Welcome back, {username}.[/green]")
+                self._console.print(f"[green]Welcome back to MiniOS, {username}.[/green]")
                 self._console.print()
                 return username
 

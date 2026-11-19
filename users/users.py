@@ -1,12 +1,12 @@
-"""User management for Forge OS."""
+"""User management for MiniOS."""
 
 
 class UserManager:
     """Manages virtual user accounts."""
 
     def __init__(self) -> None:
-        self._current_user = "forge"
-        self._hostname = "localhost"
+        self._current_user = "minios"
+        self._hostname = "minios"
         self._users: dict[str, dict] = {}
 
     @property
@@ -30,7 +30,7 @@ class UserManager:
                 "uid": 1000 + len(self._users),
                 "gid": 1000,
                 "home": f"/home/{username}",
-                "shell": "/bin/forge",
+                "shell": "/bin/minios",
                 "full_name": username.replace("_", " ").title(),
             }
         return self._users[username]

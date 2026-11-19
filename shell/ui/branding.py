@@ -1,28 +1,27 @@
-"""Forge OS ASCII branding."""
 
-# Original Forge OS emblem — anvil with rising sparks (left column, neofetch scale)
-FORGE_SIG = """          *
-         * *
-        *   *
-         \\|/
-      .--|||--.
-     /   |||   \\
-    /____|||____\\
-         |||
-         |||
-      ___| |___
-     |_________|"""""
+"""MiniOS ASCII branding."""
 
-# Classic block logo (top-right in neofetch layout)
-FORGE_LOGO = """\
-███████╗ ██████╗ ██████╗  ██████╗ ███████╗
-██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝
-█████╗  ██║   ██║██████╔╝██║  ███╗█████╗
-██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝
-██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗
-╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝"""
+# MiniOS emblem
+FORGE_SIG = r"""
+       ___________
+      |  MINI OS  |
+      |___________|
+          | |
+       ___| |___
+      |_________|
+"""
 
-# Neofetch-style palette (label, block)
+# MiniOS classic block logo
+FORGE_LOGO = r"""
+███╗   ███╗██╗███╗   ██╗██╗ ██████╗ ███████╗
+████╗ ████║██║████╗  ██║██║██╔═══██╗██╔════╝
+██╔████╔██║██║██╔██╗ ██║██║██║   ██║███████╗
+██║╚██╔╝██║██║██║╚██╗██║██║██║   ██║╚════██║
+██║ ╚═╝ ██║██║██║ ╚████║██║╚██████╔╝███████║
+╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚══════╝
+"""
+
+# Classic terminal color palette
 PALETTE = (
     ("#CC3333", "red"),
     ("#4E9A06", "green"),
@@ -36,6 +35,6 @@ PALETTE = (
 
 LABEL_STYLE = "bold cyan"
 HEADER_STYLE = "bold cyan"
-SIG_STYLE = "bold #FF8C00"
+SIG_STYLE = "bold cyan"
 BLOCK_STYLE = "bold cyan"
 VALUE_STYLE = "white"

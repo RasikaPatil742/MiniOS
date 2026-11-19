@@ -8,12 +8,12 @@ from shell.commands.base import BaseCommand, CommandResult
 class RebootCommand(BaseCommand):
     name = "reboot"
     category = "system"
-    description = "Reboot Forge OS"
+    description = "Reboot MiniOS"
     syntax = "reboot"
     examples = ("reboot",)
 
     def execute(self, args: list[str], context: dict[str, Any]) -> CommandResult:
         return CommandResult(
-            output="Forge OS rebooting... (session ended)",
+            output="MiniOS rebooting... (session ended)",
             should_exit=True,
         )

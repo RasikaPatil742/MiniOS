@@ -1,4 +1,4 @@
-"""Change Forge OS password."""
+"""Change MiniOS password."""
 
 from getpass import getpass
 from typing import Any
@@ -10,7 +10,7 @@ from shell.commands.base import BaseCommand, CommandResult
 class PasswdCommand(BaseCommand):
     name = "passwd"
     category = "user"
-    description = "Change your Forge OS password"
+    description = "Change your MiniOS password"
     syntax = "passwd"
     examples = ("passwd",)
 

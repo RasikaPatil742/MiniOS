@@ -25,17 +25,17 @@ class ShellSession:
     @classmethod
     def create(cls, config: ShellConfig | None = None, users: Any | None = None) -> "ShellSession":
         config = config or ShellConfig()
-        username = users.whoami() if users is not None else "forge"
-        hostname = users.hostname if users is not None else "localhost"
+        username = users.whoami() if users is not None else "user"
+        hostname = users.hostname if users is not None else "minios"
         user_record = users.get_user(username) if users is not None else None
-        home = user_record["home"] if user_record else "/home/forge"
+        home = user_record["home"] if user_record else f"/home/{username}"
 
         environment = Environment(
             {
                 "USER": username,
                 "HOSTNAME": hostname,
                 "HOME": home,
-                "SHELL": user_record["shell"] if user_record else "/bin/forge",
+                "SHELL": user_record["shell"] if user_record else "/bin/minios",
                 "PATH": "/usr/bin:/bin:/usr/local/bin",
                 "PWD": home,
                 "FORGE_VERSION": config.version,

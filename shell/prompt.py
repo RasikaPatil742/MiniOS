@@ -16,15 +16,15 @@ class PromptRenderer:
         self._colors = ThemeColors(config=self._config)
 
     def render_plain(self) -> str:
-        username = self._session.environment.get("USER", "forge")
-        hostname = self._session.environment.get("HOSTNAME", "localhost")
+        username = self._session.environment.get("USER", "user")
+        hostname = self._session.environment.get("HOSTNAME", "minios")
         directory = self._session.cwd or "/"
         symbol = self._config.prompt_symbol
         return f"{username}@{hostname}:{directory} {symbol} "
 
     def render_rich(self) -> Text:
-        username = self._session.environment.get("USER", "forge")
-        hostname = self._session.environment.get("HOSTNAME", "localhost")
+        username = self._session.environment.get("USER", "user")
+        hostname = self._session.environment.get("HOSTNAME", "minios")
         directory = self._session.cwd or "/"
         symbol = self._config.prompt_symbol
 

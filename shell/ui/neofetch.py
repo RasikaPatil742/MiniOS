@@ -46,12 +46,12 @@ def build_neofetch(
     header = f"{username}@{hostname}"
     separator = "─" * len(header)
     fields = [
-        ("OS", f"Forge OS {version}"),
+        ("OS", f"MiniOS {version}"),
         ("Host", hostname),
         ("Kernel", f"{kernel.name} {kernel.version}"),
         ("Uptime", kernel.uptime()),
-        ("Packages", f"{len(packages.list_packages())} (forgepkg)"),
-        ("Shell", "forge"),
+        ("Packages", f"{len(packages.list_packages())} (MiniOS pkg)"),
+        ("Shell", "MiniOS Shell"),
         ("User", username),
         ("Memory", f"{used_mb}MiB / {total_mb}MiB"),
         ("CWD", session.cwd),

@@ -15,7 +15,7 @@ class LoginWindow(tk.Tk):
 
     def __init__(self) -> None:
         super().__init__()
-        self.title("Forge OS — Sign In")
+        self.title("MiniOS — Sign In")
         self.configure(bg=T.BG_WINDOW)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self._cancel)
@@ -56,13 +56,13 @@ class LoginWindow(tk.Tk):
         frame = tk.Frame(self, bg=T.BG_WINDOW, padx=24, pady=20)
         frame.pack(fill="both", expand=True)
 
-        title = "Create your account" if self._first_run else "Sign in to continue"
+        title = "Welcome to MiniOS" if not self._first_run else "Create your MiniOS account"
         tk.Label(frame, text=title, font=("Segoe UI", 14, "bold"), fg=T.ACCENT, bg=T.BG_WINDOW).pack(
             anchor="w"
         )
         tk.Label(
             frame,
-            text="Credentials are stored locally on this machine.",
+            text="Sign in to access your MiniOS environment.",
             font=T.FONT_UI,
             fg=T.FG_DIM,
             bg=T.BG_WINDOW,
@@ -106,29 +106,29 @@ class LoginWindow(tk.Tk):
         password = self._pass.get()
 
         if not username:
-            messagebox.showerror("Forge OS", "Username cannot be empty.", parent=self)
+            messagebox.showerror("MiniOS", "Username cannot be empty.", parent=self)
             return
 
         if self._first_run:
             confirm = self._confirm.get() if self._confirm else ""
             if password != confirm:
-                messagebox.showerror("Forge OS", "Passwords do not match.", parent=self)
+                messagebox.showerror("MiniOS", "Passwords do not match.", parent=self)
                 return
             try:
                 record = self._store.register(username, password)
                 self._store.remember_username(record.username)
                 self._done(record.username)
             except ValueError as error:
-                messagebox.showerror("Forge OS", str(error), parent=self)
+                messagebox.showerror("MiniOS", str(error), parent=self)
             except Exception as error:
-                messagebox.showerror("Forge OS", f"Registration failed: {error}", parent=self)
+                messagebox.showerror("MiniOS", f"Registration failed: {error}", parent=self)
             return
 
         if self._store.verify(username, password):
             self._store.remember_username(username)
             self._done(username)
         else:
-            messagebox.showerror("Forge OS", "Invalid credentials.", parent=self)
+            messagebox.showerror("MiniOS", "Invalid credentials.", parent=self)
 
     def _done(self, username: str) -> None:
         self.result = username

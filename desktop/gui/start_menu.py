@@ -27,7 +27,7 @@ class StartMenu(tk.Toplevel):
 
         header = tk.Label(
             outer,
-            text="Forge OS",
+            text="MiniOS",
             font=("Segoe UI", 12, "bold"),
             fg=T.ACCENT,
             bg=T.BG_WINDOW,

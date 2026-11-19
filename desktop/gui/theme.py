@@ -1,4 +1,4 @@
-"""Forge OS desktop color and font theme."""
+"""MiniOS desktop color and font theme."""
 
 BG_DESKTOP = "#0d1117"
 BG_WINDOW = "#161b22"

@@ -1,4 +1,4 @@
-"""Forge Terminal — shell running inside a desktop window."""
+"""MiniOS Terminal — shell running inside a desktop window."""
 
 from __future__ import annotations
 
@@ -167,7 +167,7 @@ class TerminalApp(ManagedWindow):
             session=shell.session,
         )
         self._text_console.append(banner)
-        self._text_console.append("\nForge OS Terminal ready. Type help and press Enter.\n\n")
+        self._text_console.append("\nMiniOS Terminal ready. Type help and press Enter.\n\n")
 
         try:
             shell.start_gui(self._input_bridge.read_line)
